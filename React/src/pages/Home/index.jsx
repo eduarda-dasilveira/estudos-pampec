@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { v4 } from "uuid";
+import {AddButton, Container} from './styles'
 
 function Home() {
   const inputRef = useRef();
@@ -15,10 +16,10 @@ function Home() {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Lista de Compras</h1>
       <input placeholder="produto..." ref={inputRef} />
-      <button onClick={cliqueiNoBotao}>Adicionar</button>
+      <AddButton onClick={cliqueiNoBotao}>Adicionar</AddButton>
 
       {produtos.map((produto) => (
         <div key={produto.id}>
@@ -26,7 +27,7 @@ function Home() {
           <button onClick={() => deletarProduto(produto.id)}>🗑️</button>
         </div>
       ))}
-    </div>
+    </Container>
   );
 }
 
