@@ -7,6 +7,11 @@ function Home() {
 
   function cliqueiNoBotao() {
     setProdutos([{ id: v4(), nome: inputRef.current.value }, ...produtos]);
+    inputRef.current.value = ''
+  }
+
+  function deletarProduto(id){
+    setProdutos(produtos.filter(produto => produto.id !== id))
   }
 
   return (
@@ -18,7 +23,7 @@ function Home() {
       {produtos.map((produto) => (
         <div key={produto.id}>
           <p>{produto.nome}</p>
-          <button>Deletar</button>
+          <button onClick={() => deletarProduto(produto.id)}>🗑️</button>
         </div>
       ))}
     </div>
