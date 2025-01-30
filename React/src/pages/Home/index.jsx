@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { v4 } from "uuid";
-import {AddButton, Container} from './styles'
+import {AddButton, Container, Product, TrashButton} from './styles'
 
 function Home() {
   const inputRef = useRef();
@@ -22,10 +22,10 @@ function Home() {
       <AddButton onClick={cliqueiNoBotao}>Adicionar</AddButton>
 
       {produtos.map((produto) => (
-        <div key={produto.id}>
+        <Product key={produto.id}>
           <p>{produto.nome}</p>
-          <button onClick={() => deletarProduto(produto.id)}>🗑️</button>
-        </div>
+          <TrashButton onClick={() => deletarProduto(produto.id)}>🗑️</TrashButton>
+        </Product>
       ))}
     </Container>
   );
